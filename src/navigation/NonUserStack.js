@@ -1,8 +1,6 @@
 import React from 'react';
-import WelcomeScreen from '../screens/WelcomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import Signup from '../screens/Signup';
-import Home from '../screens/Home';
 import Login from '../screens/Login';
 
 const Stack = createStackNavigator();
