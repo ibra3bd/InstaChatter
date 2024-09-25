@@ -1,21 +1,18 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
 export const login = createAsyncThunk(
-  'auth/login',
+  'register/signup',
   async ({email, password}, thunkAPI) => {
     const {getState, rejectWithValue} = thunkAPI;
 
     try {
       // Await the fetch call to resolve
-      const response = await fetch('https://fakestoreapi.com/auth/login', {
+      fetch('https://fakestoreapi.com/users', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          username: email,
+          email: email,
           password: password,
-          expiresInMins: 30, // optional, defaults to 60
         }),
-        credentials: 'include', // Include cookies (e.g., accessToken) in the request
       });
 
       // Log the raw response

@@ -15,6 +15,7 @@ import CustomInput from '../components/CustomInput';
 import {useDispatch, useSelector} from 'react-redux';
 import {setAccesstoken, setUser} from '../../store/auth';
 import {login} from '../store/auth';
+import Signup from './Signup';
 
 export default function Login() {
   const [password, setPassword] = useState('');
@@ -92,6 +93,12 @@ export default function Login() {
               title="Login"
               onPress={() => {
                 dispatch(login({email, password}));
+              }}
+            />
+            <Button
+              title="SignUP"
+              onPress={() => {
+                navigation.navigate(Signup);
               }}
             />
           </View>

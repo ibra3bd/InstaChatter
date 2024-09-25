@@ -4,8 +4,10 @@ import {login} from './action';
 
 const initialState = {
   loading: true,
-  user: null,
-  token: null,
+  id: null,
+  email: null,
+  username: null,
+  password: null,
   isLoggedIn: null,
 };
 
@@ -15,7 +17,7 @@ const authSlice = createSlice({
   reducers: {
     logout: state => {
       state.user = null;
-      state.token = null;
+      state.password = null;
     },
     // handle loggin by guest
     setIsLoggedIn: (state, action) => {
@@ -29,8 +31,9 @@ const authSlice = createSlice({
         state.loading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.token = action.payload.token;
+        state.email = action.payload.email;
+        state.password = action.payload.password;
+        state.id = action.payload.id;
         state.loading = false;
       })
       .addCase(login.rejected, (state, action) => {

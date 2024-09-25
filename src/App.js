@@ -6,12 +6,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getProduts} from './store/app';
 
 const App = () => {
-  const {access_token} = useSelector(state => state.auth);
-  console.log('access_token:', access_token);
+  const {token} = useSelector(state => state.auth);
+  console.log('token:', token);
   return (
     <>
       <StatusBar backgroundColor={'transparent'} translucent={true} />
-      {access_token ? <UsersStack /> : <NonUserStack />}
+      {token ? <UsersStack /> : <NonUserStack />}
     </>
   );
 };
